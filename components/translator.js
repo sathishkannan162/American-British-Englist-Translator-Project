@@ -8,7 +8,7 @@ class Translator {
         return sentence.split(' ');
     }
 
-    translateAmerican(sentence) {
+    translateToBritish(sentence) {
         let words = this.parserInput(sentence);
         for (let i = 0; i < words.length; i++) {
             let rem = '';
@@ -26,7 +26,7 @@ class Translator {
         }
         return words.join(' ');
     }
-    translateBritish(sentence) {
+    translateToAmerican(sentence) {
         let words = this.parserInput(sentence);
         let britishWords = Object.values(americanToBritishSpelling);
         let americanWords = Object.keys(americanToBritishSpelling);
