@@ -59,6 +59,13 @@ input[type="button"] {
   padding: 10px;
 }
 
+footer {
+  background-color: lightgray;
+  width: 99%;
+  position: absolute;
+  bottom: 0%;
+}
+
 @media (min-width: 800px) {
   .container {
     flex-direction: row;

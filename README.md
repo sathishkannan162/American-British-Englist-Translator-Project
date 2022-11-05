@@ -1,5 +1,9 @@
 # American British Translator
-Attribution: This project was done as a part of Quality Assurance course on Freecodecamp and is a exact replica of [https://american-british-translator.freecodecamp.rocks/](https://american-british-translator.freecodecamp.rocks/).
+**Attribution**: This project was done as a part of Quality Assurance course on Freecodecamp and is a exact replica of [https://american-british-translator.freecodecamp.rocks/](https://american-british-translator.freecodecamp.rocks/).
+
+You can input a text in American English and get the text translated into British English. The words that are translated are highlighted in green. 
+
+You can also send a api request to `/api/translate` with text field as the text that needs to be translated and locale field as `american-to-british` or `british-to-american` and the response will be a translated text in translation field.
 
 ## User Stories Completed
 
