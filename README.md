@@ -4,8 +4,11 @@ Attribution: This project was done as a part of Quality Assurance course on Free
 ## User Stories Completed
 
 All logic can go into /components/translator.js
+
 Complete the /api/translate route in /routes/api.js
+
 Create all of the unit/functional tests in tests/1_unit-tests.js and tests/2_functional-tests.js
+
 See the JavaScript files in /components for the different spelling and terms your application should translate.
 
 Write the following tests in tests/1_unit-tests.js:
