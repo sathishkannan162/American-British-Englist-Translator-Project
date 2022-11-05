@@ -25,8 +25,8 @@ suite('Functional Tests', function () {
                     assert.equal(res.status, 200);
                     assert.isObject(res.body);
                     assert.property(res.body, 'translation');
-                    assert.property(res.body, 'submission');
-                    assert.equal(res.body.submission, 'Mangoes are my favorite');
+                    assert.property(res.body, 'text');
+                    assert.equal(res.body.text, 'Mangoes are my favorite');
                     assert.equal(res.body.translation, 'Mangoes are my <span class="highlight">favourite</span>');
                 });
             chai
@@ -43,8 +43,8 @@ suite('Functional Tests', function () {
                     assert.equal(res.status, 200);
                     assert.isObject(res.body);
                     assert.property(res.body, 'translation');
-                    assert.property(res.body, 'submission');
-                    assert.equal(res.body.submission, 'Mangoes are my favourite');
+                    assert.property(res.body, 'text');
+                    assert.equal(res.body.text, 'Mangoes are my favourite');
                     assert.equal(res.body.translation, 'Mangoes are my <span class="highlight">favorite</span>');
                     done();
                 });
@@ -141,8 +141,8 @@ suite('Functional Tests', function () {
                     assert.equal(res.status, 200);
                     assert.isObject(res.body);
                     assert.property(res.body, 'translation');
-                    assert.property(res.body, 'submission');
-                    assert.equal(res.body.submission, 'Mangoes are my favourite');
+                    assert.property(res.body, 'text');
+                    assert.equal(res.body.text, 'Mangoes are my favourite');
                     assert.equal(res.body.translation, 'Everything looks good to me!');
                     done();
                 });

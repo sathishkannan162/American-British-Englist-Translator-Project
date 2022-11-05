@@ -20,13 +20,13 @@ module.exports = function (app) {
             if (translation == req.body.text) {
               res.json({
                 translation: 'Everything looks good to me!',
-                submission: req.body.text
+                text: req.body.text
               })
             }
             else {
               res.json({
                 translation: translation,
-                submission: req.body.text
+                text: req.body.text
               })
             }
           }
@@ -35,13 +35,13 @@ module.exports = function (app) {
             if (translation == req.body.text) {
               res.json({
                 translation: 'Everything looks good to me!',
-                submission: req.body.text
+                text: req.body.text
               })
             }
             else {
               res.json({
                 translation: translation,
-                submission: req.body.text
+                text: req.body.text
               })
             }
           }
