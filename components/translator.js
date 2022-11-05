@@ -16,26 +16,35 @@ class Translator {
         let americanTitleKeys = Object.keys(americanToBritishTitles);
         let americanTitleVals = Object.values(americanToBritishTitles);
         let newSentence = sentence.concat('');
+        let pullstop = true;
+        if (sentence[sentence.length - 1] !== '.') {
+            pullstop = false;
+            newSentence = newSentence.concat('.');
+        }
 
-        for (let i=0; i<americanSpellKeys.length; i++) {
-            let match = '(?<!-)'+americanSpellKeys[i]+'([\\W])';
-            let regex = new RegExp(match,'gi');
-            newSentence = newSentence.replace(regex,'<span class="highlight">'+americanSpellVals[i]+'</span>'+'$1');
-            
+
+        for (let i = 0; i < americanSpellKeys.length; i++) {
+            let match = '(?<!-)' + americanSpellKeys[i] + '([\\W])';
+            let regex = new RegExp(match, 'gi');
+            newSentence = newSentence.replace(regex, '<span class="highlight">' + americanSpellVals[i] + '</span>' + '$1');
+
         }
-        for (let i=0; i<americanOnlyKeys.length; i++) {
-            let match = '(?<!-)'+americanOnlyKeys[i]+'([\\W])';
-            let regex = new RegExp(match,'gi');
-            newSentence = newSentence.replace(regex,'<span class="highlight">'+americanOnlyVals[i]+'</span>'+'$1');
+        for (let i = 0; i < americanOnlyKeys.length; i++) {
+            let match = '(?<!-)' + americanOnlyKeys[i] + '([\\W])';
+            let regex = new RegExp(match, 'gi');
+            newSentence = newSentence.replace(regex, '<span class="highlight">' + americanOnlyVals[i] + '</span>' + '$1');
         }
-        for (let i=0; i<americanTitleKeys.length; i++) {
-            
-            let match = americanTitleKeys[i]+'([\\W])';
-            let regex = new RegExp(match,'gi');
+        for (let i = 0; i < americanTitleKeys.length; i++) {
+
+            let match = americanTitleKeys[i] + '([\\W])';
+            let regex = new RegExp(match, 'gi');
             americanTitleVals[i] = americanTitleVals[i][0].toUpperCase() + americanTitleVals[i].slice(1);
-            newSentence = newSentence.replace(regex,'<span class="highlight">'+americanTitleVals[i]+'</span>'+'$1');
+            newSentence = newSentence.replace(regex, '<span class="highlight">' + americanTitleVals[i] + '</span>' + '$1');
         }
-        newSentence = newSentence.replace(/(\d+)\:(\d+)/g,'<span class="highlight">$1.$2</span>')
+        newSentence = newSentence.replace(/(\d+)\:(\d+)/g, '<span class="highlight">$1.$2</span>');
+        if (!pullstop) {
+            newSentence = newSentence.slice(0, newSentence.length - 1);
+        }
         return newSentence;
     }
     translateToAmerican(sentence) {
@@ -46,25 +55,33 @@ class Translator {
         let americanTitleKeys = Object.keys(americanToBritishTitles);
         let americanTitleVals = Object.values(americanToBritishTitles);
         let newSentence = sentence.concat('');
-        for (let i=0; i<americanSpellVals.length; i++) {
-            let match = '(?<!-)'+americanSpellVals[i]+'([\\W])';
-            let regex = new RegExp(match,'gi');
-            newSentence = newSentence.replace(regex,'<span class="highlight">'+americanSpellKeys[i]+'</span>'+'$1');
-            
+        let pullstop = true;
+        if (sentence[sentence.length - 1] !== '.') {
+            pullstop = false;
+            newSentence = newSentence.concat('.');
         }
-        for (let i=0; i<britishOnlyKeys.length; i++) {
-            let match = '(?<!-)'+britishOnlyKeys[i]+'([\\W])';
-            let regex = new RegExp(match,'gi');
-            newSentence = newSentence.replace(regex,'<span class="highlight">'+britishOnlyVals[i]+'</span>'+'$1');
+        for (let i = 0; i < americanSpellVals.length; i++) {
+            let match = '(?<!-)' + americanSpellVals[i] + '([\\W])';
+            let regex = new RegExp(match, 'gi');
+            newSentence = newSentence.replace(regex, '<span class="highlight">' + americanSpellKeys[i] + '</span>' + '$1');
+
         }
-        for (let i=0; i<americanTitleVals.length; i++) {
-            
-            let match = americanTitleVals[i]+'([\\W])';
-            let regex = new RegExp(match,'gi');
+        for (let i = 0; i < britishOnlyKeys.length; i++) {
+            let match = '(?<!-)' + britishOnlyKeys[i] + '([\\W])';
+            let regex = new RegExp(match, 'gi');
+            newSentence = newSentence.replace(regex, '<span class="highlight">' + britishOnlyVals[i] + '</span>' + '$1');
+        }
+        for (let i = 0; i < americanTitleVals.length; i++) {
+
+            let match = americanTitleVals[i] + '([\\W])';
+            let regex = new RegExp(match, 'gi');
             americanTitleKeys[i] = americanTitleKeys[i][0].toUpperCase() + americanTitleKeys[i].slice(1);
-            newSentence = newSentence.replace(regex,'<span class="highlight">'+americanTitleKeys[i]+'</span>'+'$1');
+            newSentence = newSentence.replace(regex, '<span class="highlight">' + americanTitleKeys[i] + '</span>' + '$1');
         }
-        newSentence = newSentence.replace(/(\d+)\.(\d+)/g,'<span class="highlight">$1:$2</span>')
+        newSentence = newSentence.replace(/(\d+)\.(\d+)/g, '<span class="highlight">$1:$2</span>');
+        if (!pullstop) {
+            newSentence = newSentence.slice(0, newSentence.length - 1);
+        }
         return newSentence;
     }
 }
