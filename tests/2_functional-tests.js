@@ -7,7 +7,7 @@ chai.use(chaiHttp);
 
 let Translator = require('../components/translator.js');
 
-suite('Functional Tests', () => {
+suite('Functional Tests', function () {
     this.timeout(5000);
     suite('POST /api/translate =>', function () {
         test('valid text and local field gives translated text', function (done) {
@@ -142,7 +142,7 @@ suite('Functional Tests', () => {
                     assert.isObject(res.body);
                     assert.property(res.body, 'translation');
                     assert.property(res.body, 'submission');
-                    assert.equal(res.body.submission, 'Mangoes are my favorite');
+                    assert.equal(res.body.submission, 'Mangoes are my favourite');
                     assert.equal(res.body.translation, 'Everything looks good to me!');
                     done();
                 });
